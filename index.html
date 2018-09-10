@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Robots</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/materia.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+<div class="container" id="header">
+  <h1 style="padding: 20px;">Delivery Robots</h1>
+</div>
+<div class="container" id="main">
+  <div id="form">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group mx-sm-3 mb-2">
+          <input autocomplete="off" type="text" class="form-control" id="numberOfRobots" aria-describedby="numRobHelp" placeholder="Enter number between 1-20">
+          <small id="numRobHelp" class="form-text text-muted">Enter the number of robots that will be delivering presents</small> </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group mx-sm-3 mb-2">
+          <input autocomplete="off" onkeypress="return checkCharacters(event);" type="text" class="form-control" id="robotMoves" aria-describedby="seqHelp" placeholder="Enter move sequence">
+          <small id="seqHelp" class="form-text text-muted">Enter the characters <>^v to represent left, right, up and down</small> </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group mx-sm-3 mb-2">
+          <input autocomplete="off" type="text" class="form-control" id="housePresents" aria-describedby="presentHelp" placeholder="Enter a number">
+          <small id="presentHelp" class="form-text text-muted">Enter a number that will be used to query number of presents matching</small> </div>
+      </div>
+    </div>
+    <div class="row" style="padding: 20px;">
+      <div class="col">
+        <button type="submit" class="btn btn-primary" onClick="runOnce();">One Turn</button>
+		  <button type="submit" class="btn btn-primary" onclick="fullRunThru();">Perform Full Run!</button>
+        <button type="submit" class="btn btn-primary" onClick="resetPage();">Reset</button>
+      </div>
+    </div>
+  </div>
+  <div class="spacer">&nbsp;</div>
+  <div class="container" id="resultsOne">
+    <div class="alert alert-info" id="simpleResult"></div>
+    <div class="alert alert-success" id="whereResultsOne"></div>
+    <div class="alert alert-info" id="houseCountOne"></div>
+    <div class="alert alert-info" id="presentCountOne"></div>
+  </div>
+  <div class="container" id="continueFull">
+    <div class="spacer">&nbsp;</div>
+      <div class="alert alert-success" id="whereResultsFull"></div>
+      <div class="alert alert-info" id="houseCountFull"></div>
+      <div class="alert alert-info" id="presentCountFull"></div>
+    </div>
+  </div>
+</div>
+<div class="container" id="footer">
+	  <div class="alert alert-danger" id="errorResult"></div>
+	  </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script language="javascript" type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
+<script type="text/javascript">
+$.backstretch("img/bot-diy-grass-6069.jpg");
+//$.backstretch("img/bookcase-books-computers-1329068.jpg");
+
+</script>
+<script>readyPage();</script>
+</body>
+</html>
