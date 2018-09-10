@@ -1,6 +1,7 @@
 // ************************************
 // Heather Maga
 // September 09 2018
+// There is a massive amount of duplicate code that could & should be optimized
 // ************************************
 
 // ***** Hide all the empty alert boxes
@@ -227,10 +228,8 @@ function fullRunThru() {
     var curPos = [];
 		var robotLoopCount=0;
 
-console.log (numberOfRobots);
-//////////////////////////////////////////////////////////////
-////////////////// start of movement loop ////////////////////
-//////////////////////////////////////////////////////////////
+//console.log (numberOfRobots);
+
     for (i = 0; i < numberOfMoves; i++) {
 
 		console.log (robotLoopCount);
@@ -276,9 +275,6 @@ console.log (numberOfRobots);
 			robotLoopCount++;
 
     }
-		//////////////////////////////////////////////////////////////
-		//////////////////// end of movement loop ////////////////////
-		//////////////////////////////////////////////////////////////
 
 		// Display robot locations
     var displayWhere = "<h2>Robot Locations <small class='text-muted'>After All Moves</small></h2>";
