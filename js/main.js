@@ -1,7 +1,6 @@
 // ************************************
 // Heather Maga
 // September 09 2018
-// Code sample/test for weeverapps.com
 // ************************************
 
 // ***** Hide all the empty alert boxes
