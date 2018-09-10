@@ -17,7 +17,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="form-group mx-sm-3 mb-2">
-          <input autocomplete="off" type="text" class="form-control" id="numberOfRobots" aria-describedby="numRobHelp" placeholder="Enter number between 1-20">
+          <input onkeypress="return checkNumbers(event);" autocomplete="off" type="text" class="form-control" id="numberOfRobots" aria-describedby="numRobHelp" placeholder="Enter number between 1-20">
           <small id="numRobHelp" class="form-text text-muted">Enter the number of robots that will be delivering presents</small> </div>
       </div>
       <div class="col-md-4">
@@ -27,7 +27,7 @@
       </div>
       <div class="col-md-4">
         <div class="form-group mx-sm-3 mb-2">
-          <input autocomplete="off" type="text" class="form-control" id="housePresents" aria-describedby="presentHelp" placeholder="Enter a number">
+          <input onkeypress="return checkNumbers(event);" autocomplete="off" type="text" class="form-control" id="housePresents" aria-describedby="presentHelp" placeholder="Enter a number">
           <small id="presentHelp" class="form-text text-muted">Enter a number that will be used to query number of presents matching</small> </div>
       </div>
     </div>

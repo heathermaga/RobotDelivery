@@ -40,6 +40,16 @@ function checkCharacters(e) {
   return true;
 }
 
+// ***** this restricts the characters that can be
+// ***** entered into the two number only boxes
+function checkNumbers(e) {
+  var k;
+  document.all ? k = e.keyCode : k = e.which;
+  var char = String.fromCharCode(k);
+  if (!char.match(/[0-9]|\./)) return false;
+  return true;
+}
+
 // ***** Robot constructor
 function Robot(xPos, yPos) {
   this.x = xPos;
