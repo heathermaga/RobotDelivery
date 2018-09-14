@@ -98,7 +98,7 @@ function moveTheRobots(partOrFull) {
 		//than display entered data
 		document.getElementById("simpleResult").textContent = "You Entered: " + numberOfRobots + " robots. and the following sequence of " + numberOfMoves + " moves: " + movesEntered;
 		//Create the robots and add to array
-		for (i = 0; i < numberOfRobots; i++) {
+		for (var i = 0; i < numberOfRobots; i++) {
 			Robots.push(new Robot(0, 0));
 		}
 
