@@ -233,8 +233,8 @@ function fullRunThru(numberOfRobots, movesEntered, presentQuery, numberOfMoves, 
 
 	for (i = 0; i < numberOfMoves; i++) {
 
-		console.log(robotLoopCount);
-		console.log(i);
+		//console.log(robotLoopCount);
+		//console.log(i);
 
 		if (numberOfRobots <= robotLoopCount) {
 			robotLoopCount = 0;
