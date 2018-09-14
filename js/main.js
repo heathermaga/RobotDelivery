@@ -7,8 +7,8 @@
 // ***** Hide all the empty alert boxes
 function readyPage() {
 	"use strict";
-	$('.alert').filter(function () {
-		return $.trim($(this).text()) === '';
+	$(".alert").filter(function () {
+		return $.trim($(this).text()) === "";
 	}).hide();
 
 }
@@ -17,9 +17,9 @@ function readyPage() {
 // ***** to hide all the alert boxes
 function resetPage() {
 	"use strict";
-	$('input[type=text]').val('');
-	var alertBoxes = document.getElementsByClassName('alert');
-	for (var i = 0; i < alertBoxes.length; i++) {
+	$("input[type=text]").val("");
+	var alertBoxes = document.getElementsByClassName("alert");
+	for (i = 0; i < alertBoxes.length; i++) {
 		alertBoxes[i].innerHTML = "";
 	}
 	readyPage();
@@ -29,8 +29,8 @@ function resetPage() {
 // ***** in any alert box and display if there is
 function checkAlerts() {
 	"use strict";
-	$('.alert').filter(function () {
-		return $.trim($(this).text()) !== '';
+	$(".alert").filter(function () {
+		return $.trim($(this).text()) !== "";
 	}).show();
 }
 
@@ -75,9 +75,9 @@ function moveTheRobots(partOrFull) {
 	"use strict";
 	//set up initial variables
 	var numberOfRobots = 1; //the number of robots, defaulting to 1
-	numberOfRobots = document.getElementById('numberOfRobots').value;
-	var movesEntered = document.getElementById('robotMoves').value; //the movement sequence, given as a string
-	var presentQuery = document.getElementById('housePresents').value;
+	numberOfRobots = document.getElementById("numberOfRobots").value;
+	var movesEntered = document.getElementById("robotMoves").value; //the movement sequence, given as a string
+	var presentQuery = document.getElementById("housePresents").value;
 	var numberOfMoves = movesEntered.length;
 	var errorMessage = ""; //errorResult
 	var Robots = [];
@@ -98,7 +98,7 @@ function moveTheRobots(partOrFull) {
 		//than display entered data
 		document.getElementById("simpleResult").textContent = "You Entered: " + numberOfRobots + " robots. and the following sequence of " + numberOfMoves + " moves: " + movesEntered;
 		//Create the robots and add to array
-		for (var i = 0; i < numberOfRobots; i++) {
+		for (i = 0; i < numberOfRobots; i++) {
 			Robots.push(new Robot(0, 0));
 		}
 
@@ -132,7 +132,7 @@ function runOnce(numberOfRobots, movesEntered, presentQuery, numberOfMoves, Robo
 		loops = Robots.length;
 	}
 
-	var moves = movesEntered.split('');
+	var moves = movesEntered.split("");
 	var curPos = [];
 
 	for (i = 0; i < loops; i++) {
@@ -224,7 +224,7 @@ function fullRunThru(numberOfRobots, movesEntered, presentQuery, numberOfMoves, 
 	"use strict";
 	var Presents = [];
 	var errorMessage = ""; //errorResult
-	var moves = movesEntered.split('');
+	var moves = movesEntered.split("");
 	var curPos = [];
 	var robotLoopCount = 0;
 	var result;
