@@ -6,7 +6,7 @@
 
 // ***** Hide all the empty alert boxes
 function readyPage() {
-	"use strict";
+
 	$(".alert").filter(function () {
 		return $.trim($(this).text()) === "";
 	}).hide();
@@ -16,10 +16,10 @@ function readyPage() {
 // ***** clear the text and call the readyPage
 // ***** to hide all the alert boxes
 function resetPage() {
-	"use strict";
+
 	$("input[type=text]").val("");
-	var alertBoxes = document.getElementsByClassName("alert");
-	for (i = 0; i < alertBoxes.length; i++) {
+	let alertBoxes = document.getElementsByClassName("alert");
+	for (let i = 0; i < alertBoxes.length; i++) {
 		alertBoxes[i].innerHTML = "";
 	}
 	readyPage();
@@ -28,7 +28,7 @@ function resetPage() {
 // ***** check to see if there is text
 // ***** in any alert box and display if there is
 function checkAlerts() {
-	"use strict";
+
 	$(".alert").filter(function () {
 		return $.trim($(this).text()) !== "";
 	}).show();
@@ -37,10 +37,10 @@ function checkAlerts() {
 // ***** this restricts the characters that can be
 // ***** entered into the movement box
 function checkCharacters(e) {
-	"use strict";
-	var k;
+
+	let k;
 	document.all ? k = e.keyCode : k = e.which;
-	var char = String.fromCharCode(k);
+	const char = String.fromCharCode(k);
 	if (!char.match(/[\^<>v]/i)) return false;
 	return true;
 }
@@ -48,39 +48,39 @@ function checkCharacters(e) {
 // ***** this restricts the characters that can be
 // ***** entered into the two number only boxes
 function checkNumbers(e) {
-	"use strict";
-	var k;
+
+	let k;
 	document.all ? k = e.keyCode : k = e.which;
-	var char = String.fromCharCode(k);
+	const char = String.fromCharCode(k);
 	if (!char.match(/[0-9]|\./)) return false;
 	return true;
 }
 
 // ***** Robot constructor
 function Robot(xPos, yPos) {
-	"use strict";
+
 	this.x = xPos;
 	this.y = yPos;
 }
 
 // ***** Present constructor
 function Present(xPos, yPos) {
-	"use strict";
+
 	this.x = xPos;
 	this.y = yPos;
 }
 
 
 function moveTheRobots(partOrFull) {
-	"use strict";
+
 	//set up initial variables
-	var numberOfRobots = 1; //the number of robots, defaulting to 1
+	let numberOfRobots = 1; //the number of robots, defaulting to 1
 	numberOfRobots = document.getElementById("numberOfRobots").value;
-	var movesEntered = document.getElementById("robotMoves").value; //the movement sequence, given as a string
-	var presentQuery = document.getElementById("housePresents").value;
-	var numberOfMoves = movesEntered.length;
-	var errorMessage = ""; //errorResult
-	var Robots = [];
+	let movesEntered = document.getElementById("robotMoves").value; //the movement sequence, given as a string
+	const presentQuery = document.getElementById("housePresents").value;
+	const numberOfMoves = movesEntered.length;
+	let errorMessage = ""; //errorResult
+	let Robots = [];
 
 
 	//check the entered data for errors
@@ -98,7 +98,7 @@ function moveTheRobots(partOrFull) {
 		//than display entered data
 		document.getElementById("simpleResult").textContent = "You Entered: " + numberOfRobots + " robots. and the following sequence of " + numberOfMoves + " moves: " + movesEntered;
 		//Create the robots and add to array
-		for (var i = 0; i < numberOfRobots; i++) {
+		for (let i = 0; i < numberOfRobots; i++) {
 			Robots.push(new Robot(0, 0));
 		}
 
@@ -121,21 +121,21 @@ function moveTheRobots(partOrFull) {
 
 // step thru one turn
 function runOnce(numberOfRobots, movesEntered, presentQuery, numberOfMoves, Robots) {
-	"use strict";
-	var Presents = [];
-	var errorMessage = ""; //errorResult
 
-	var loops;
+	let Presents = [];
+	let errorMessage = ""; //errorResult
+	let loops;
+
 	if (Robots.length > numberOfMoves) {
 		loops = numberOfMoves;
 	} else {
 		loops = Robots.length;
 	}
 
-	var moves = movesEntered.split("");
-	var curPos = [];
+	const moves = movesEntered.split("");
+	let curPos = [];
 
-	for (i = 0; i < loops; i++) {
+	for (let i = 0; i < loops; i++) {
 		curPos = [];
 
 		Robots.forEach(function (element) {
@@ -158,11 +158,10 @@ function runOnce(numberOfRobots, movesEntered, presentQuery, numberOfMoves, Robo
 		}
 
 		// check if there is a robot at location
-		var foundMatch = false;
-
-		var BobX = Robots[i].x;
-		var BobY = Robots[i].y;
-		var BobXY = BobX.toString() + BobY.toString();
+		let foundMatch = false;
+		const BobX = Robots[i].x;
+		const BobY = Robots[i].y;
+		const BobXY = BobX.toString() + BobY.toString();
 
 		foundMatch = curPos.indexOf(BobXY);
 
@@ -173,8 +172,8 @@ function runOnce(numberOfRobots, movesEntered, presentQuery, numberOfMoves, Robo
 	}
 
 	// Display robot locations
-	var displayWhere = "<h2>Robot Locations <small class='text-muted'>After One Move</small></h2>";
-	var i = 1;
+	let displayWhere = "<h2>Robot Locations <small class='text-muted'>After One Move</small></h2>";
+	let i = 1;
 	Robots.forEach(function (element) {
 		displayWhere = displayWhere + "<strong>Robot " + i + ": </strong> " + element.x.toString() + ", " + element.y.toString() + "<br />";
 		i++;
@@ -182,12 +181,12 @@ function runOnce(numberOfRobots, movesEntered, presentQuery, numberOfMoves, Robo
 	document.getElementById("whereResultsOne").innerHTML = displayWhere;
 
 	//get all the unique present Locations
-	var uniqueLocations = Array.from(new Set(Presents))
-	var ULXY = [];
-	var simpPres = [];
-	var countPresentsAtLocations = [];
-	var onlyCount = [];
-	var result;
+	const uniqueLocations = Array.from(new Set(Presents))
+	let ULXY = [];
+	let simpPres = [];
+	let countPresentsAtLocations = [];
+	let onlyCount = [];
+	let result;
 
 	uniqueLocations.forEach(function (element) {
 		ULXY.push(element.x.toString() + element.y.toString());
@@ -203,7 +202,7 @@ function runOnce(numberOfRobots, movesEntered, presentQuery, numberOfMoves, Robo
 		onlyCount.push(result);
 	});
 
-	var matchingNumber = onlyCount.filter(i => i >= presentQuery).length;
+	let matchingNumber = onlyCount.filter(i => i >= presentQuery).length;
 
 	//Display how many presents delivered
 	if (Presents.length > 1) {
@@ -221,17 +220,17 @@ function runOnce(numberOfRobots, movesEntered, presentQuery, numberOfMoves, Robo
 
 // keep moving until no moves left
 function fullRunThru(numberOfRobots, movesEntered, presentQuery, numberOfMoves, Robots) {
-	"use strict";
-	var Presents = [];
-	var errorMessage = ""; //errorResult
-	var moves = movesEntered.split("");
-	var curPos = [];
-	var robotLoopCount = 0;
-	var result;
+
+	let Presents = [];
+	let errorMessage = ""; //errorResult
+	const moves = movesEntered.split("");
+	let curPos = [];
+	let robotLoopCount = 0;
+	let result;
 
 	//console.log (numberOfRobots);
 
-	for (i = 0; i < numberOfMoves; i++) {
+	for (let i = 0; i < numberOfMoves; i++) {
 
 		//console.log(robotLoopCount);
 		//console.log(i);
@@ -261,11 +260,11 @@ function fullRunThru(numberOfRobots, movesEntered, presentQuery, numberOfMoves, 
 		}
 
 		// check if there is a robot at location
-		var foundMatch = false;
+		let foundMatch = false;
 
-		var BobX = Robots[robotLoopCount].x;
-		var BobY = Robots[robotLoopCount].y;
-		var BobXY = BobX.toString() + BobY.toString();
+		const BobX = Robots[robotLoopCount].x;
+		const BobY = Robots[robotLoopCount].y;
+		const BobXY = BobX.toString() + BobY.toString();
 
 		foundMatch = curPos.indexOf(BobXY);
 
@@ -278,8 +277,8 @@ function fullRunThru(numberOfRobots, movesEntered, presentQuery, numberOfMoves, 
 	}
 
 	// Display robot locations
-	var displayWhere = "<h2>Robot Locations <small class='text-muted'>After All Moves</small></h2>";
-	var i = 1;
+	let displayWhere = "<h2>Robot Locations <small class='text-muted'>After All Moves</small></h2>";
+	let i = 1;
 	Robots.forEach(function (element) {
 		displayWhere = displayWhere + "<strong>Robot " + i + ": </strong> " + element.x.toString() + ", " + element.y.toString() + "<br />";
 		i++;
@@ -287,11 +286,11 @@ function fullRunThru(numberOfRobots, movesEntered, presentQuery, numberOfMoves, 
 	document.getElementById("whereResultsFull").innerHTML = displayWhere;
 
 	//get all the unique present Locations
-	var uniqueLocations = Array.from(new Set(Presents))
-	var ULXY = [];
-	var simpPres = [];
-	var countPresentsAtLocations = [];
-	var onlyCount = [];
+	let uniqueLocations = Array.from(new Set(Presents))
+	let ULXY = [];
+	let simpPres = [];
+	let countPresentsAtLocations = [];
+	let onlyCount = [];
 
 	uniqueLocations.forEach(function (element) {
 		ULXY.push(element.x.toString() + element.y.toString());
@@ -307,7 +306,7 @@ function fullRunThru(numberOfRobots, movesEntered, presentQuery, numberOfMoves, 
 		onlyCount.push(result);
 	});
 
-	var matchingNumber = onlyCount.filter(i => i >= presentQuery).length;
+	const matchingNumber = onlyCount.filter(i => i >= presentQuery).length;
 
 	//Display how many presents delivered
 	if (Presents.length > 1) {
